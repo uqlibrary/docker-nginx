@@ -1,12 +1,10 @@
-FROM  dockerfile/nginx
+FROM  uqlibrary/docker-base
+
+RUN \
+  yum install -y nginx && \
+  yum clean all
 
 COPY nginx.conf /etc/nginx/nginx.conf
-
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y supervisor && \
-    apt-get autoremove -y && \
-    apt-get autoclean
 
 COPY nginx_config.sh /opt/nginx_config.sh
 RUN chmod +x /opt/nginx_config.sh
