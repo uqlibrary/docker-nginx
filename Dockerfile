@@ -9,9 +9,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx_config.sh /opt/nginx_config.sh
 RUN chmod +x /opt/nginx_config.sh
 
-COPY site.config /etc/nginx/sites-available/php
-RUN ln -s /etc/nginx/sites-available/php /etc/nginx/sites-enabled/php && \
-    rm -f /etc/nginx/sites-enabled/default
+RUN rm -f /etc/nginx/conf.d/*
+COPY site.conf /etc/nginx/conf.d/site.conf
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
