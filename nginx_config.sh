@@ -1,15 +1,8 @@
 #!/bin/bash
 
-# Temporary test
 mkdir -p /data/www/public
 
-cat > /data/www/public/test.php << EOF
-<?php
-phpinfo();
-
-EOF
-
-cat > /data/www/public/test.txt << EOF
-Test
-
-EOF
+if [ -n "$AWS_S3_OBJECT" ] ; then
+	aws s3 cp $AWS_S3_OBJECT
+  unzip app.zip -d /data/www/public
+fi

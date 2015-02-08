@@ -23,5 +23,8 @@ After few seconds, open `http://<host>` to see the result.
 
 The following environment variables can be used to configure the container:
 
-    PHPFPM_SERVICE_HOST     The host name of the container running a PHP FPM process.
-    PHPFPM_SERVICE_PORT     The port of the running PHP FPM process.
+    AWS_S3_OBJECT             If set, should be an S3 location of a zip file named app.zip
+                              containing the code to deploy to this instance.
+    AWS_DEFAULT_REGION        The region of the S3 bucket.
+    AWS_ACCESS_KEY_ID         The AWS access key ID for accessing the S3 bucket.
+    AWS_SECRET_ACCESS_KEY     The AWS secret access key for accessing the S3 bucket.
