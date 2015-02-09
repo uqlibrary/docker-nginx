@@ -15,5 +15,4 @@ if [ -n "$AWS_S3_OBJECT" ] ; then
   fi
 fi
 
-# Notifies Nginx to start
-touch /tmp/nginx_config.log
+exec /usr/sbin/nginx

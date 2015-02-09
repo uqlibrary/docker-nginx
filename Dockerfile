@@ -27,13 +27,13 @@ RUN \
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY site.conf /etc/nginx/conf.d/site.conf
 
-COPY nginx_config.sh /opt/nginx_config.sh
-RUN chmod +x /opt/nginx_config.sh
+COPY nginx.sh /opt/nginx.sh
+RUN chmod +x /opt/nginx.sh
 
 COPY www.conf /etc/php-fpm.d/www.conf
 
-COPY phpfpm_config.sh /opt/phpfpm_config.sh
-RUN chmod +x /opt/phpfpm_config.sh
+COPY php-fpm.sh /opt/php-fpm.sh
+RUN chmod +x /opt/php-fpm.sh
 
 RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php.ini && \
     sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php.ini && \
