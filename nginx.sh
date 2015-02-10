@@ -2,15 +2,15 @@
 
 # Configure on first load..
 if [ ! -f /tmp/supervisord-nginx.log ] ; then
-  mkdir -p /data/www
+  mkdir -p /var/app/current
 
   # Grab the code from an S3 bucket?
   if [ -n "$AWS_S3_OBJECT" ] ; then
     echo Copying application archive..
     aws s3 cp $AWS_S3_OBJECT app.zip
     echo Extracting to web server directory..
-    unzip app.zip -d /data/www
-    cd /data/www
+    unzip app.zip -d /var/app/current
+    cd /var/app/current
 
     if [ -f .kubernetes/bootstrap.sh ] ; then
       source .kubernetes/bootstrap.sh
