@@ -13,8 +13,9 @@ if [ ! -f /tmp/supervisord-nginx.log ] ; then
   fi
 
   cd /var/app/current
-  if [ -f .kubernetes/bootstrap.sh ] ; then
-    source .kubernetes/bootstrap.sh
+
+  if [ -f .docker/${APP_ENVIRONMENT}/bootstrap.sh ] ; then
+    source .docker/${APP_ENVIRONMENT}/bootstrap.sh
   fi
 
   touch /tmp/supervisord-nginx.log
