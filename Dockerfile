@@ -3,25 +3,17 @@ FROM  uqlibrary/docker-base
 RUN \
   yum install -y nginx && \
   yum install -y \
-    php-fpm \
-    php-curl \
-    php-gd \
-    php-geoip \
-    php-imagick \
-    php-imap \
-    php-json \
-    php-ldap \
-    php-mcrypt \
-    php-memcache \
-    php-memcached \
-    php-mssql \
-    php-mysqlnd \
-    php-pgsql \
-    php-redis \
-    php-sqlite \
-    php-xdebug \
-    php-xmlrpc \
-    php-xcache && \
+    php56u-common \
+    php56u-fpm \
+    php56u-gd \
+    php56u-pecl-geoip \
+    php56u-imap \
+    php56u-ldap \
+    php56u-mcrypt \
+    php56u-pecl-memcached \
+    php56u-mysqlnd \
+    php56u-sqlite \
+    php56u-xmlrpc && \
   yum clean all
 
 COPY nginx.conf /etc/nginx/nginx.conf
