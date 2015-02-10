@@ -28,3 +28,5 @@ The following environment variables can be used to configure the container:
     AWS_DEFAULT_REGION        The region of the S3 bucket.
     AWS_ACCESS_KEY_ID         The AWS access key ID for accessing the S3 bucket.
     AWS_SECRET_ACCESS_KEY     The AWS secret access key for accessing the S3 bucket.
+    
+    NEWRELIC_INSTALL_KEY      The New Relic installation key
