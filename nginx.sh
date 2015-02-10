@@ -10,11 +10,11 @@ if [ ! -f /tmp/supervisord-nginx.log ] ; then
     aws s3 cp $AWS_S3_OBJECT app.zip
     echo Extracting to web server directory..
     unzip app.zip -d /var/app/current
-    cd /var/app/current
+  fi
 
-    if [ -f .kubernetes/bootstrap.sh ] ; then
-      source .kubernetes/bootstrap.sh
-    fi
+  cd /var/app/current
+  if [ -f .kubernetes/bootstrap.sh ] ; then
+    source .kubernetes/bootstrap.sh
   fi
 
   touch /tmp/supervisord-nginx.log
