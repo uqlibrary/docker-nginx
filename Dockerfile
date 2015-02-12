@@ -20,6 +20,7 @@ RUN \
     php56u-pgsql \
     php56u-sqlite \
     php56u-xmlrpc \
+    php56u-mbstring \
     newrelic-php5 \
     newrelic-sysmond && \
   yum clean all
