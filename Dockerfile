@@ -1,4 +1,4 @@
-FROM  uqlibrary/docker-base
+FROM uqlibrary/docker-base:latest
 
 ENV TIMEZONE Australia/Brisbane
 
