@@ -1,7 +1,5 @@
 FROM uqlibrary/docker-base:latest
 
-ENV TIMEZONE Australia/Brisbane
-
 RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
 
 RUN \
@@ -38,7 +36,7 @@ COPY etc/php-fpm.d/www.conf /etc/php-fpm.d/www.conf
 COPY opt/php-fpm.sh /opt/php-fpm.sh
 RUN chmod +x /opt/php-fpm.sh
 
-RUN sed -i "s/;date.timezone =.*/date.timezone = $TIMEZONE/" /etc/php.ini && \
+RUN sed -i "s/;date.timezone =.*/date.timezone = Australia\/Brisbane/" /etc/php.ini && \
     sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php.ini && \
     sed -i "s/display_errors = Off/display_errors = stderr/" /etc/php.ini && \
     sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 30M/" /etc/php.ini && \
