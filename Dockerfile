@@ -1,5 +1,7 @@
 FROM  uqlibrary/docker-base
 
+ENV TIMEZONE Australia/Brisbane
+
 RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
 
 RUN \
@@ -25,27 +27,27 @@ RUN \
     newrelic-sysmond && \
   yum clean all
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY site.conf /etc/nginx/conf.d/site.conf
+COPY etc/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY etc/nginx/conf.d/site.conf /etc/nginx/conf.d/site.conf
 
-COPY nginx.sh /opt/nginx.sh
+COPY opt/nginx.sh /opt/nginx.sh
 RUN chmod +x /opt/nginx.sh
 
-COPY www.conf /etc/php-fpm.d/www.conf
+COPY etc/php-fpm.d/www.conf /etc/php-fpm.d/www.conf
 
-COPY php-fpm.sh /opt/php-fpm.sh
+COPY opt/php-fpm.sh /opt/php-fpm.sh
 RUN chmod +x /opt/php-fpm.sh
 
-RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php.ini && \
+RUN sed -i "s/;date.timezone =.*/date.timezone = $TIMEZONE/" /etc/php.ini && \
     sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php.ini && \
     sed -i "s/display_errors = Off/display_errors = stderr/" /etc/php.ini && \
     sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 30M/" /etc/php.ini && \
     sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php-fpm.conf
 
-COPY newrelic.sh /opt/newrelic.sh
+COPY opt/newrelic.sh /opt/newrelic.sh
 RUN chmod +x /opt/newrelic.sh
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 80
