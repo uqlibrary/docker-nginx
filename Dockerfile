@@ -45,7 +45,7 @@ RUN sed -i "s/;date.timezone =.*/date.timezone = Australia\/Brisbane/" /etc/php.
 COPY opt/newrelic.sh /opt/newrelic.sh
 RUN chmod +x /opt/newrelic.sh
 
-COPY /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 80
