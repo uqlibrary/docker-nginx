@@ -19,6 +19,7 @@ RUN \
     php56u-pecl-redis \
     php56u-pgsql \
     php56u-sqlite \
+    php56u-soap \
     php56u-xmlrpc \
     php56u-mbstring \
     newrelic-php5 \
