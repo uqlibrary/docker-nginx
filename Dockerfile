@@ -17,6 +17,7 @@ RUN \
     php56u-pecl-geoip \
     php56u-pecl-memcached \
     php56u-pecl-redis \
+    php56u-pecl-xdebug \
     php56u-pgsql \
     php56u-sqlite \
     php56u-soap \
