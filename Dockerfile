@@ -23,6 +23,7 @@ RUN \
     php56u-xmlrpc \
     php56u-mbstring \
     php56u-tidy \
+    git \
     newrelic-php5 \
     newrelic-sysmond && \
   yum clean all
