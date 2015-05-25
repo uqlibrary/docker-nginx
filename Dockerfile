@@ -11,7 +11,6 @@ RUN \
     php56u-imap \
     php56u-ldap \
     php56u-mcrypt \
-    php56u-mssql \
     php56u-mysqlnd \
     php56u-pdo \
     php56u-pecl-geoip \
