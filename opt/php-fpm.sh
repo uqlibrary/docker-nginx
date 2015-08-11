@@ -7,7 +7,6 @@ if [ ! -f /tmp/supervisord-phpfpm.log ] ; then
   do
     sleep 2
   done
-  # TODO: pass in service environment variables
 
   touch /tmp/supervisord-phpfpm.log
 fi
