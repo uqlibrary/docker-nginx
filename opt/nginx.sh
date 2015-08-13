@@ -12,5 +12,5 @@ if [ ! -f /tmp/supervisord-nginx.log ] ; then
 
   touch /tmp/supervisord-nginx.log
 fi
-su nobody -s /bin/bash
+
 exec /usr/sbin/nginx
