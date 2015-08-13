@@ -10,5 +10,5 @@ if [ ! -f /tmp/supervisord-phpfpm.log ] ; then
 
   touch /tmp/supervisord-phpfpm.log
 fi
-
+su nobody -s /bin/bash
 exec /usr/sbin/php-fpm
