@@ -54,6 +54,9 @@ RUN rm -f /etc/php.d/20-mssql.ini && \
 COPY opt/newrelic.sh /opt/newrelic.sh
 RUN chmod +x /opt/newrelic.sh
 
+RUN chown nobody:nobody /var/log/nginx && \
+    chown nobody:nobody /var/log/php-fpm
+
 COPY etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 
