@@ -39,6 +39,8 @@ COPY etc/php-fpm.d/www.conf /etc/php-fpm.d/www.conf
 COPY opt/php-fpm.sh /opt/php-fpm.sh
 RUN chmod +x /opt/php-fpm.sh
 
+COPY etc/php.d/15-xdebug.ini /etc/php.d/15-xdebug.ini
+
 RUN rm -f /etc/php.d/20-mssql.ini && \
     rm -f /etc/php.d/30-pdo_dblib.ini && \
     sed -i "s/;date.timezone =.*/date.timezone = Australia\/Brisbane/" /etc/php.ini && \
