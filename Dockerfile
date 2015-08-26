@@ -30,6 +30,7 @@ RUN \
 
 COPY etc/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY etc/nginx/conf.d/site.conf /etc/nginx/conf.d/site.conf
+COPY etc/nginx/h5bp /etc/nginx/h5bp
 
 COPY opt/nginx.sh /opt/nginx.sh
 RUN chmod +x /opt/nginx.sh
