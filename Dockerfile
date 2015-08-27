@@ -46,7 +46,7 @@ RUN rm -f /etc/php.d/20-mssql.ini && \
     rm -f /etc/php.d/30-pdo_dblib.ini && \
     sed -i "s/;date.timezone =.*/date.timezone = Australia\/Brisbane/" /etc/php.ini && \
     sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php.ini && \
-    sed -i "s/display_errors = Off/display_errors = stderr/" /etc/php.ini && \
+    sed -i "s/display_errors =.*/display_errors = Off/" /etc/php.ini && \
     sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 30M/" /etc/php.ini && \
     sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php-fpm.conf && \
     sed -i "s/error_log =.*/;error_log/" /etc/php-fpm.conf && \
