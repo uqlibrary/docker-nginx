@@ -9,4 +9,4 @@ COPY etc/h5bp /etc/nginx/h5bp
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/sbin/nginx"]
+CMD ["nginx", "-g", "daemon off;"]
