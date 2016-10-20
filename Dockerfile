@@ -1,9 +1,11 @@
-FROM uqlibrary/docker-base:7
+FROM uqlibrary/docker-base:9
 
 RUN \
   yum install -y nginx && \
   yum clean all && \
   echo 'fastcgi_param HTTP_PROXY "";' >> /etc/nginx/fastcgi.conf
+  echo 'fastcgi_buffers 16 16k;' >> /etc/nginx/fastcgi.conf
+  echo 'fastcgi_buffer_size 32k;' >> /etc/nginx/fastcgi.conf
 
 COPY etc/nginx.conf /etc/nginx/nginx.conf
 COPY etc/h5bp /etc/nginx/h5bp
