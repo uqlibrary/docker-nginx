@@ -1,4 +1,4 @@
-FROM uqlibrary/docker-base:11
+FROM uqlibrary/docker-base:13
 
 RUN \
   yum install -y nginx && \
