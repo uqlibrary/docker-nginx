@@ -7,9 +7,9 @@ This repository contains a Dockerfile of Nginx for Docker's automated build publ
 
 1. Install [Docker](https://www.docker.com/).
 
-2. Download the [automated build](https://registry.hub.docker.com/u/uqlibrary/nginx/) from the public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull uqlibrary/docker-nginx`
+2. Download the [automated build](https://registry.hub.docker.com/u/uqlibrary/nginx/) from the public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull uqlibrary/nginx`
 
-   (or, you can build an image from Dockerfile: `docker build -t uqlibrary/docker-nginx .)
+   (or, you can build an image from Dockerfile: `docker build -t uqlibrary/nginx .)
 
 ### Usage
 
