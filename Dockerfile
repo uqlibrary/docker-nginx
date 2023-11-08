@@ -1,6 +1,10 @@
 FROM nginx:stable-alpine
 
 RUN \
+  apk upgrade --no-cache && \
+  rm -rf /var/cache/apk/*
+
+RUN \
   echo 'fastcgi_param HTTP_PROXY "";' >> /etc/nginx/fastcgi.conf && \
   echo 'fastcgi_buffers 8 16k;' >> /etc/nginx/fastcgi.conf && \
   echo 'fastcgi_buffer_size 16k;' >> /etc/nginx/fastcgi.conf && \
