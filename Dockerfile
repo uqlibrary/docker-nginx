@@ -1,5 +1,7 @@
 FROM nginx:stable-alpine
 
+RUN apk upgrade --update --no-cache
+
 RUN \
   echo 'fastcgi_param HTTP_PROXY "";' >> /etc/nginx/fastcgi.conf && \
   echo 'fastcgi_buffers 8 16k;' >> /etc/nginx/fastcgi.conf && \
